@@ -42,7 +42,7 @@ jobs:
 
 workflows:
   version: 2
-  "test-results":
+  "test-run-report":
     jobs:
       - node-latest
       - node-8

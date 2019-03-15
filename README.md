@@ -18,30 +18,30 @@ Get test result reports from Salesforce
 <!-- install -->
 <!-- usage -->
 ```sh-session
-$ npm install -g test-results
-$ test-results COMMAND
+$ npm install -g test-run-report
+$ test-run-report COMMAND
 running command...
-$ test-results (-v|--version|version)
-test-results/0.0.0 darwin-x64 node-v8.12.0
-$ test-results --help [COMMAND]
+$ test-run-report (-v|--version|version)
+test-run-report/0.0.0 darwin-x64 node-v8.12.0
+$ test-run-report --help [COMMAND]
 USAGE
-  $ test-results COMMAND
+  $ test-run-report COMMAND
 ...
 ```
 <!-- usagestop -->
 <!-- commands -->
-* [`test-results <%= command.id %> [-n <string>] [-f] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`](#test-results--commandid---n-string--f--v-string--u-string---apiversion-string---json---loglevel-tracedebuginfowarnerrorfatal)
-* [`test-results <%= command.id %> [-d <string>] [-c] [-r] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`](#test-results--commandid---d-string--c--r--v-string--u-string---apiversion-string---json---loglevel-tracedebuginfowarnerrorfatal)
-* [`test-results testrun:view`](#test-results-testrunview)
+* [`test-run-report <%= command.id %> [-n <string>] [-f] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`](#test-run-report--commandid---n-string--f--v-string--u-string---apiversion-string---json---loglevel-tracedebuginfowarnerrorfatal)
+* [`test-run-report <%= command.id %> [-d <string>] [-c] [-r] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`](#test-run-report--commandid---d-string--c--r--v-string--u-string---apiversion-string---json---loglevel-tracedebuginfowarnerrorfatal)
+* [`test-run-report testrunreport:view`](#test-run-report-testrunreportview)
 
-## `test-results <%= command.id %> [-n <string>] [-f] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`
+## `test-run-report <%= command.id %> [-n <string>] [-f] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`
 
 print a greeting and your org IDs
 
 ```
 USAGE
-  $ test-results hello:org [-n <string>] [-f] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel 
-  trace|debug|info|warn|error|fatal]
+  $ test-run-report hello:org [-n <string>] [-f] [-v <string>] [-u <string>] [--apiversion <string>] [--json] 
+  [--loglevel trace|debug|info|warn|error|fatal]
 
 OPTIONS
   -f, --force                                      example boolean flag
@@ -61,16 +61,16 @@ EXAMPLES
      Hello myname! This is org: MyOrg and I will be around until Tue Mar 20 2018!
 ```
 
-_See code: [src/commands/hello/org.ts](https://github.com/leboff/test-results/blob/v0.0.0/src/commands/hello/org.ts)_
+_See code: [src/commands/hello/org.ts](https://github.com/leboff/test-run-report/blob/v0.0.0/src/commands/hello/org.ts)_
 
-## `test-results <%= command.id %> [-d <string>] [-c] [-r] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`
+## `test-run-report <%= command.id %> [-d <string>] [-c] [-r] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`
 
 Retrieve reports for a test run
 
 ```
 USAGE
-  $ test-results testrun:report [-d <string>] [-c] [-r] [-v <string>] [-u <string>] [--apiversion <string>] [--json] 
-  [--loglevel trace|debug|info|warn|error|fatal]
+  $ test-run-report testrunreport:retrieve [-d <string>] [-c] [-r] [-v <string>] [-u <string>] [--apiversion <string>] 
+  [--json] [--loglevel trace|debug|info|warn|error|fatal]
 
 OPTIONS
   -c, --codecoverage                               directory root to place test results
@@ -90,26 +90,26 @@ OPTIONS
   --loglevel=(trace|debug|info|warn|error|fatal)   [default: warn] logging level for this command invocation
 
 EXAMPLE
-  $ sfdx testrun:report --targetusername myOrg@example.com --outputDirectory results
+  $ sfdx testrunreport:retrieve --targetusername myOrg@example.com --outputDirectory results
      Test results written to results/myOrg@example.com/2019-03-06T09:45:21.000+0000
 ```
 
-_See code: [src/commands/testrun/report.ts](https://github.com/leboff/test-results/blob/v0.0.0/src/commands/testrun/report.ts)_
+_See code: [src/commands/testrunreport/retrieve.ts](https://github.com/leboff/test-run-report/blob/v0.0.0/src/commands/testrunreport/retrieve.ts)_
 
-## `test-results testrun:view`
+## `test-run-report testrunreport:view`
 
 View test run results
 
 ```
 USAGE
-  $ test-results testrun:view
+  $ test-run-report testrunreport:view
 
 OPTIONS
   -i, --inputdir=inputdir  (required) the directory to scan for reports
   -p, --port=port          [default: 3000] port to run server on
 ```
 
-_See code: [src/commands/testrun/view.ts](https://github.com/leboff/test-results/blob/v0.0.0/src/commands/testrun/view.ts)_
+_See code: [src/commands/testrunreport/view.ts](https://github.com/leboff/test-run-report/blob/v0.0.0/src/commands/testrunreport/view.ts)_
 <!-- commandsstop -->
 <!-- debugging-your-plugin -->
 # Debugging your plugin

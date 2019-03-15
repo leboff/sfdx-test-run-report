@@ -10,14 +10,14 @@ core.Messages.importMessagesDirectory(__dirname);
 
 // Load the specific messages for this file. Messages from @salesforce/command, @salesforce/core,
 // or any library that is using the messages framework can also be loaded this way.
-const messages = core.Messages.loadMessages('test-results', 'testrun.report');
+const messages = core.Messages.loadMessages('test-run-report', 'testrunreport.retrieve');
 
-export default class Report extends SfdxCommand {
+export default class Retrieve extends SfdxCommand {
 
   public static description = messages.getMessage('commandDescription');
 
   public static examples = [
-  `$ sfdx testrun:report --targetusername myOrg@example.com --outputDirectory results
+  `$ sfdx testrunreport:retrieve --targetusername myOrg@example.com --outputDirectory results
   Test results written to results/myOrg@example.com/2019-03-06T09:45:21.000+0000
   `
   ];

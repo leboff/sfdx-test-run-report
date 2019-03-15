@@ -8,7 +8,7 @@ import { ChoiceType } from 'inquirer';
 const XunitViewer = require('xunit-viewer/cli');
 
 core.Messages.importMessagesDirectory(__dirname);
-const messages = core.Messages.loadMessages('test-results', 'testrun.view');
+const messages = core.Messages.loadMessages('test-run-report', 'testrunreport.view');
 
 export default class TestrunView extends Command {
   static description = messages.getMessage('commandDescription')
