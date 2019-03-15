@@ -31,8 +31,6 @@ export default class TestrunView extends Command {
       choices: choices
     }]);
 
-    console.log(XunitViewer);
-
     XunitViewer({
       title: 'Xunit Viewer',
       port: flags.port,
