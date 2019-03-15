@@ -96,6 +96,9 @@ export default class Report extends SfdxCommand {
       targetusername: username
     }
 
+    if(resultformat){
+      reportOpts.resultformat = resultformat;
+    }
 
     return sfdx.apex.testReport(reportOpts)
     .then(() => {

@@ -1,4 +1,5 @@
 {
   "commandDescription": "View test run results",
-  "portFlagDescription": "port to run server on"
+  "portFlagDescription": "port to run server on",
+  "inputDirFlagDescription": "the directory to scan for reports"
 }

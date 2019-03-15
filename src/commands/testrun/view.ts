@@ -1,25 +1,53 @@
-import {Command, flags} from '@oclif/command'
+import { core } from '@salesforce/command';
+import {Command, flags} from '@oclif/command';
+import * as glob from 'glob';
+
+import * as inquirer from 'inquirer';
+import { ChoiceType } from 'inquirer';
+
+const XunitViewer = require('xunit-viewer/cli');
+
+core.Messages.importMessagesDirectory(__dirname);
+const messages = core.Messages.loadMessages('test-results', 'testrun.view');
 
 export default class TestrunView extends Command {
-  static description = 'describe the command here'
+  static description = messages.getMessage('commandDescription')
 
   static flags = {
-    help: flags.help({char: 'h'}),
-    // flag with a value (-n, --name=VALUE)
-    name: flags.string({char: 'n', description: 'name to print'}),
-    // flag with no value (-f, --force)
-    force: flags.boolean({char: 'f'}),
+    inputdir: flags.string({char: 'i', description: messages.getMessage('inputDirFlagDescription'), required: true}),
+    port: flags.integer({char: 'p', description: messages.getMessage('portFlagDescription'), default: 3000})
   }
 
-  static args = [{name: 'file'}]
-
   async run() {
-    const {args, flags} = this.parse(TestrunView)
+    const {flags} = this.parse(TestrunView)
 
-    const name = flags.name || 'world'
-    this.log(`hello ${name} from /Users/leboff/projects/stryker/test-results/src/commands/testrun/view.ts`)
-    if (args.file && flags.force) {
-      this.log(`you input --force and --file: ${args.file}`)
-    }
+    const choices = await this.findResults(flags.inputdir);
+
+
+    let response: any = await inquirer.prompt([{
+      name: 'junitFile',
+      message: 'select a test run result',
+      type: 'list',
+      choices: choices
+    }]);
+
+    console.log(XunitViewer);
+
+    XunitViewer({
+      title: 'Xunit Viewer',
+      port: flags.port,
+      color: true,
+      format: 'html',
+      results: response.junitFile
+    })
+  }
+
+  findResults(inputdir): Promise<ChoiceType[]>  {
+    return new Promise((resolve, reject) => {
+      glob(`**/*-junit.xml`, {root: inputdir}, (err, files) =>{
+        if(err) return reject(err);
+        resolve(files.map((file): ChoiceType => ({name: file})));
+      })
+    })
   }
 }

@@ -31,7 +31,8 @@ USAGE
 <!-- usagestop -->
 <!-- commands -->
 * [`test-results <%= command.id %> [-n <string>] [-f] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`](#test-results--commandid---n-string--f--v-string--u-string---apiversion-string---json---loglevel-tracedebuginfowarnerrorfatal)
-* [`test-results <%= command.id %> [-d <string>] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`](#test-results--commandid---d-string--v-string--u-string---apiversion-string---json---loglevel-tracedebuginfowarnerrorfatal)
+* [`test-results <%= command.id %> [-d <string>] [-c] [-r] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`](#test-results--commandid---d-string--c--r--v-string--u-string---apiversion-string---json---loglevel-tracedebuginfowarnerrorfatal)
+* [`test-results testrun:view`](#test-results-testrunview)
 
 ## `test-results <%= command.id %> [-n <string>] [-f] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`
 
@@ -62,29 +63,53 @@ EXAMPLES
 
 _See code: [src/commands/hello/org.ts](https://github.com/leboff/test-results/blob/v0.0.0/src/commands/hello/org.ts)_
 
-## `test-results <%= command.id %> [-d <string>] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`
+## `test-results <%= command.id %> [-d <string>] [-c] [-r] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`
 
 Retrieve reports for a test run
 
 ```
 USAGE
-  $ test-results testrun:report [-d <string>] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel 
-  trace|debug|info|warn|error|fatal]
+  $ test-results testrun:report [-d <string>] [-c] [-r] [-v <string>] [-u <string>] [--apiversion <string>] [--json] 
+  [--loglevel trace|debug|info|warn|error|fatal]
 
 OPTIONS
-  -d, --outputdirectory=outputdirectory            Directory root to place test results
+  -c, --codecoverage                               directory root to place test results
+  -d, --outputdirectory=outputdirectory            [default: results] directory root to place test results
+
+  -r, --resultformat                               test result format emitted to stdout; --json flag overrides this
+                                                   parameter (human*,tap,junit,json)
+
   -u, --targetusername=targetusername              username or alias for the target org; overrides default target org
+
   -v, --targetdevhubusername=targetdevhubusername  username or alias for the dev hub org; overrides default dev hub org
+
   --apiversion=apiversion                          override the api version used for api requests made by this command
+
   --json                                           format output as json
+
   --loglevel=(trace|debug|info|warn|error|fatal)   [default: warn] logging level for this command invocation
 
 EXAMPLE
   $ sfdx testrun:report --targetusername myOrg@example.com --outputDirectory results
-     tests written to results/myOrg@example.com/2019-03-06T09:45:21.000+0000
+     Test results written to results/myOrg@example.com/2019-03-06T09:45:21.000+0000
 ```
 
 _See code: [src/commands/testrun/report.ts](https://github.com/leboff/test-results/blob/v0.0.0/src/commands/testrun/report.ts)_
+
+## `test-results testrun:view`
+
+View test run results
+
+```
+USAGE
+  $ test-results testrun:view
+
+OPTIONS
+  -i, --inputdir=inputdir  (required) the directory to scan for reports
+  -p, --port=port          [default: 3000] port to run server on
+```
+
+_See code: [src/commands/testrun/view.ts](https://github.com/leboff/test-results/blob/v0.0.0/src/commands/testrun/view.ts)_
 <!-- commandsstop -->
 <!-- debugging-your-plugin -->
 # Debugging your plugin
