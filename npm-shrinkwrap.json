@@ -8091,7 +8091,6 @@
       "version": "4.0.1"
     },
     "xunit-viewer": {
-      "version": "5.1.10",
       "requires": {
         "babel-core": "^6.26.3",
         "babel-preset-react-app": "^2.1.1",

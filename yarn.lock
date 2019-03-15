@@ -7619,10 +7619,9 @@ xtend@^4.0.0, xtend@^4.0.1, xtend@~4.0.1:
   resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.1.tgz#a5c6d532be656e23db820efb943a1f04998d63af"
   integrity sha1-pcbVMr5lbiPbgg77lDofBJmNY68=
 
-xunit-viewer@^5.1.10:
+"xunit-viewer@https://github.com/leboff/xunit-viewer.git#sfdc-viewer":
   version "5.1.10"
-  resolved "https://registry.yarnpkg.com/xunit-viewer/-/xunit-viewer-5.1.10.tgz#b0f77d7aac805d88722ac90a1286f40d441bf072"
-  integrity sha512-LUWcSMveBk9iZyo/8szyxZf6kdDU74qfMRXb7ManPcHGSKRn5FnuLzAetx9M3vVBNKNgFLPUBtuaZcQ+9Xv0fA==
+  resolved "https://github.com/leboff/xunit-viewer.git#febc83ce5bd9e83fb3e2344c213b77806d4530cb"
   dependencies:
     babel-core "^6.26.3"
     babel-preset-react-app "^2.1.1"

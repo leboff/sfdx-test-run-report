@@ -15,7 +15,7 @@
     "inquirer": "^6.2.2",
     "sfdx-node": "^1.3.2",
     "tslib": "1",
-    "xunit-viewer": "^5.1.10"
+    "xunit-viewer": "https://github.com/leboff/xunit-viewer.git#sfdc-viewer"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1",
