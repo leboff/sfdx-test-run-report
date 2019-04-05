@@ -2,6 +2,8 @@
   "commandDescription": "Retrieve reports for a test run",
   "outputDirectoryFlagDescription": "directory root to place test results",
   "codeCoverageFlagDescription": "retrieve code coverage results",
+  "allTestsOnlyFlagDescription": "only retrieve results for full test runs",
+  "latestRunFlagDescription": "use latest test run",
   "resultFormatFlagDescription": "test result format emitted to stdout; --json flag overrides this parameter (human*,tap,junit,json) ",
   "errorNoResults": "No completed test runs found"
 }

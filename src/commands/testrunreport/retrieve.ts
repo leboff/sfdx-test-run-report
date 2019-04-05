@@ -26,6 +26,8 @@ export default class Retrieve extends SfdxCommand {
     // flag with a value (-n, --name=VALUE)
     outputdirectory: flags.string({char: 'd', description: messages.getMessage('outputDirectoryFlagDescription'), default: 'results'}),
     codecoverage: flags.boolean({char: 'c',  description: messages.getMessage('outputDirectoryFlagDescription')}),
+    alltestsonly: flags.boolean({char: 'a', description: messages.getMessage('allTestsOnlyFlagDescription')}),
+    uselatest: flags.boolean({char: 'l', description: messages.getMessage('latestRunFlagDescription')}),
     resultformat: flags.boolean({char: 'r',  description: messages.getMessage('resultFormatFlagDescription')}),
   };
 
@@ -39,13 +41,17 @@ export default class Retrieve extends SfdxCommand {
   protected static requiresProject = false;
 
   public async run(): Promise<AnyJson> {
-    const { outputdirectory, resultformat, codecoverage } = this.flags;
+    const { outputdirectory, resultformat, codecoverage, alltestsonly, uselatest } = this.flags;
 
     // this.org is guaranteed because requiresUsername=true, as opposed to supportsUsername
     const conn = this.org.getConnection();
     const username = this.org.getUsername();
 
-    const query = `select id, AsyncApexJobId, StartTime, status, ClassesCompleted, ClassesEnqueued from ApexTestRunResult Where Status = 'Completed' order by starttime desc`;
+    const query = `select id, AsyncApexJobId, StartTime, status, JobName, Source,
+      ClassesCompleted, ClassesEnqueued from ApexTestRunResult
+      Where Status = 'Completed'
+      ${alltestsonly ? 'and IsAllTests = true' : ''}
+      order by starttime desc`;
 
     // The type we are querying for
     interface ReportOptions {
@@ -76,16 +82,28 @@ export default class Retrieve extends SfdxCommand {
       throw new core.SfdxError(messages.getMessage('errorNoResults', [this.org.getOrgId()]));
     }
 
-    const choices: ChoiceType[] = result.records.map((run): ChoiceType => ({name: run.StartTime, value: run.Id}))
+    const choices: ChoiceType[] = result.records.map((run): ChoiceType => {
+      return {
+        name: `${run.StartTime} [${run.Status} (${run.ClassesCompleted}/${run.ClassesEnqueued})]`,
+        value: run.Id
+      }
+    })
 
-    let response: any = await inquirer.prompt([{
-      name: 'testRun',
-      message: 'select a test run',
-      type: 'list',
-      choices: choices
-    }])
 
-    const testRun: ApexTestRunResult = result.records.find((rec) => rec.Id === response.testRun)
+    let testRun: ApexTestRunResult;
+    if(uselatest){
+      testRun = result.records[0];
+    }
+    else{
+      const response: any = await inquirer.prompt([{
+        name: 'testRun',
+        message: 'select a test run',
+        type: 'list',
+        choices: choices
+      }])
+      testRun = result.records.find((rec) => rec.Id === response.testRun)
+    }
+
 
 
     let reportOpts: ReportOptions = {
