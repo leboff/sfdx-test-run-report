@@ -10,7 +10,7 @@ core.Messages.importMessagesDirectory(__dirname);
 
 // Load the specific messages for this file. Messages from @salesforce/command, @salesforce/core,
 // or any library that is using the messages framework can also be loaded this way.
-const messages = core.Messages.loadMessages('test-run-report', 'testrunreport.retrieve');
+const messages = core.Messages.loadMessages('sfdx-test-run-report', 'testrunreport.retrieve');
 
 export default class Retrieve extends SfdxCommand {
 

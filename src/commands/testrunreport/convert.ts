@@ -10,7 +10,7 @@ import { SonarQubeExecutionReporter } from '../../lib/reporters/sonarqubeExecuti
 
 
 core.Messages.importMessagesDirectory(__dirname);
-const messages = core.Messages.loadMessages('test-run-report', 'testrunreport.convert');
+const messages = core.Messages.loadMessages('sfdx-test-run-report', 'testrunreport.convert');
 
 export default class TestrunConvert extends Command {
   static description = messages.getMessage('commandDescription')

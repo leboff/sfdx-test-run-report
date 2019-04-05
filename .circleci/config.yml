@@ -42,7 +42,7 @@ jobs:
 
 workflows:
   version: 2
-  "test-run-report":
+  "sfdx-test-run-report":
     jobs:
       - node-latest
       - node-8

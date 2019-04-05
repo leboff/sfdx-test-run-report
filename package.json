@@ -1,12 +1,11 @@
 {
-  "name": "test-run-report",
+  "name": "sfdx-test-run-report",
   "description": "Get test result reports from Salesforce",
   "version": "0.0.0",
   "author": "Bryan Leboff @leboff",
-  "bugs": "https://github.com/leboff/test-run-report/issues",
+  "bugs": "https://github.com/leboff/sfdx-test-run-report/issues",
   "dependencies": {
     "@oclif/command": "1",
-    "@oclif/config": "1",
     "@oclif/errors": "1",
     "@salesforce/command": "^1.0.1",
     "@salesforce/core": "^1.0.1",
@@ -53,7 +52,7 @@
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json"
   ],
-  "homepage": "https://github.com/leboff/test-run-report",
+  "homepage": "https://github.com/leboff/sfdx-test-run-report",
   "keywords": [
     "sfdx-plugin"
   ],
@@ -69,7 +68,7 @@
       "@oclif/plugin-help"
     ]
   },
-  "repository": "leboff/test-run-report",
+  "repository": "leboff/sfdx-test-run-report",
   "scripts": {
     "postpack": "rm -f oclif.manifest.json npm-shrinkwrap.json",
     "posttest": "tslint -p test -t stylish",
