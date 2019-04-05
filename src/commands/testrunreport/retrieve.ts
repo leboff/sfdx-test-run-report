@@ -24,7 +24,7 @@ export default class Retrieve extends SfdxCommand {
 
   protected static flagsConfig = {
     // flag with a value (-n, --name=VALUE)
-    outputdirectory: flags.string({char: 'd', description: messages.getMessage('outputDirectoryFlagDescription'), default: 'results'}),
+    outputdirectory: flags.string({char: 'd', description: messages.getMessage('outputDirectoryFlagDescription'), default: 'test-results'}),
     codecoverage: flags.boolean({char: 'c',  description: messages.getMessage('outputDirectoryFlagDescription')}),
     alltestsonly: flags.boolean({char: 'a', description: messages.getMessage('allTestsOnlyFlagDescription')}),
     uselatest: flags.boolean({char: 'l', description: messages.getMessage('latestRunFlagDescription')}),
