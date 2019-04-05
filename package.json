@@ -6,6 +6,7 @@
   "bugs": "https://github.com/leboff/sfdx-test-run-report/issues",
   "dependencies": {
     "@oclif/command": "1",
+    "@oclif/config": "^1",
     "@oclif/errors": "1",
     "@salesforce/command": "^1.0.1",
     "@salesforce/core": "^1.0.1",
