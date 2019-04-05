@@ -31,7 +31,7 @@ USAGE
 <!-- usagestop -->
 <!-- commands -->
 * [`test-run-report testrunreport:convert`](#test-run-report-testrunreportconvert)
-* [`test-run-report <%= command.id %> [-d <string>] [-c] [-a] [-l] [-r] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`](#test-run-report--commandid---d-string--c--a--l--r--v-string--u-string---apiversion-string---json---loglevel-tracedebuginfowarnerrorfatal)
+* [`test-run-report testrunreport:retrieve [-d <string>] [-c] [-a] [-l] [-r] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`](#test-run-report-testrunreportretrieve--d-string--c--a--l--r--v-string--u-string---apiversion-string---json---loglevel-tracedebuginfowarnerrorfatal)
 * [`test-run-report testrunreport:view`](#test-run-report-testrunreportview)
 
 ## `test-run-report testrunreport:convert`
@@ -51,7 +51,7 @@ OPTIONS
 
 _See code: [src/commands/testrunreport/convert.ts](https://github.com/leboff/test-run-report/blob/v0.0.0/src/commands/testrunreport/convert.ts)_
 
-## `test-run-report <%= command.id %> [-d <string>] [-c] [-a] [-l] [-r] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`
+## `test-run-report testrunreport:retrieve [-d <string>] [-c] [-a] [-l] [-r] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`
 
 Retrieve reports for a test run
 
