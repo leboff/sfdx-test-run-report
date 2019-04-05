@@ -1,0 +1,5 @@
+{
+  "commandDescription": "Convert test results to report type",
+  "reportTypeFlagDescription": "type of report to convert to [sonarqube*]",
+  "inputDirFlagDescription": "the directory to scan for reports"
+}

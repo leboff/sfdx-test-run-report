@@ -22,7 +22,7 @@ $ npm install -g test-run-report
 $ test-run-report COMMAND
 running command...
 $ test-run-report (-v|--version|version)
-test-run-report/0.0.0 darwin-x64 node-v8.12.0
+test-run-report/0.0.0 darwin-x64 node-v10.15.3
 $ test-run-report --help [COMMAND]
 USAGE
   $ test-run-report COMMAND
@@ -30,8 +30,26 @@ USAGE
 ```
 <!-- usagestop -->
 <!-- commands -->
+* [`test-run-report testrunreport:convert`](#test-run-report-testrunreportconvert)
 * [`test-run-report <%= command.id %> [-d <string>] [-c] [-r] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`](#test-run-report--commandid---d-string--c--r--v-string--u-string---apiversion-string---json---loglevel-tracedebuginfowarnerrorfatal)
 * [`test-run-report testrunreport:view`](#test-run-report-testrunreportview)
+
+## `test-run-report testrunreport:convert`
+
+Convert test results to report type
+
+```
+USAGE
+  $ test-run-report testrunreport:convert
+
+OPTIONS
+  -d, --outputdir=outputdir    [default: ./test-results] the directory to scan for reports
+  -i, --inputdir=inputdir      (required) the directory to scan for reports
+  -r, --reporttype=reporttype  [default: sonarqube] type of report to convert to [sonarqube*]
+  -s, --sourcedir=sourcedir    [default: ./src] the directory to scan for reports
+```
+
+_See code: [src/commands/testrunreport/convert.ts](https://github.com/leboff/test-run-report/blob/v0.0.0/src/commands/testrunreport/convert.ts)_
 
 ## `test-run-report <%= command.id %> [-d <string>] [-c] [-r] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`
 
