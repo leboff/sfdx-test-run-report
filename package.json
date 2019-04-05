@@ -1,7 +1,7 @@
 {
   "name": "sfdx-test-run-report",
   "description": "Get test result reports from Salesforce",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Bryan Leboff @leboff",
   "bugs": "https://github.com/leboff/sfdx-test-run-report/issues",
   "dependencies": {
