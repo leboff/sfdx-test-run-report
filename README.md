@@ -22,7 +22,7 @@ $ npm install -g sfdx-test-run-report
 $ sfdx-test-run-report COMMAND
 running command...
 $ sfdx-test-run-report (-v|--version|version)
-sfdx-test-run-report/0.0.0 darwin-x64 node-v8.12.0
+sfdx-test-run-report/0.1.0 darwin-x64 node-v8.12.0
 $ sfdx-test-run-report --help [COMMAND]
 USAGE
   $ sfdx-test-run-report COMMAND
@@ -49,7 +49,7 @@ OPTIONS
   -s, --sourcedir=sourcedir    [default: ./src] the directory to scan for reports
 ```
 
-_See code: [src/commands/testrunreport/convert.ts](https://github.com/leboff/sfdx-test-run-report/blob/v0.0.0/src/commands/testrunreport/convert.ts)_
+_See code: [src/commands/testrunreport/convert.ts](https://github.com/leboff/sfdx-test-run-report/blob/v0.1.0/src/commands/testrunreport/convert.ts)_
 
 ## `sfdx-test-run-report testrunreport:retrieve [-d <string>] [-c] [-a] [-l] [-r] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal]`
 
@@ -84,7 +84,7 @@ EXAMPLE
      Test results written to results/myOrg@example.com/2019-03-06T09:45:21.000+0000
 ```
 
-_See code: [src/commands/testrunreport/retrieve.ts](https://github.com/leboff/sfdx-test-run-report/blob/v0.0.0/src/commands/testrunreport/retrieve.ts)_
+_See code: [src/commands/testrunreport/retrieve.ts](https://github.com/leboff/sfdx-test-run-report/blob/v0.1.0/src/commands/testrunreport/retrieve.ts)_
 
 ## `sfdx-test-run-report testrunreport:view`
 
@@ -99,7 +99,7 @@ OPTIONS
   -p, --port=port          [default: 3000] port to run server on
 ```
 
-_See code: [src/commands/testrunreport/view.ts](https://github.com/leboff/sfdx-test-run-report/blob/v0.0.0/src/commands/testrunreport/view.ts)_
+_See code: [src/commands/testrunreport/view.ts](https://github.com/leboff/sfdx-test-run-report/blob/v0.1.0/src/commands/testrunreport/view.ts)_
 <!-- commandsstop -->
 <!-- debugging-your-plugin -->
 # Debugging your plugin
