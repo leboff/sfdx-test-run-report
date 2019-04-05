@@ -63,7 +63,7 @@ USAGE
 OPTIONS
   -a, --alltestsonly                               only retrieve results for full test runs
   -c, --codecoverage                               directory root to place test results
-  -d, --outputdirectory=outputdirectory            [default: results] directory root to place test results
+  -d, --outputdirectory=outputdirectory            [default: test-results] directory root to place test results
   -l, --uselatest                                  use latest test run
 
   -r, --resultformat                               test result format emitted to stdout; --json flag overrides this
